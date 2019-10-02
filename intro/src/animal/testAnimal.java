@@ -16,6 +16,10 @@ public class testAnimal extends animal {
 		an1.setId(animal.getNbranimal());
 		an1.afficher();
 		new animal("homar",20,150,60,3).afficher();
+
+
+		new chat().parler();
+		new chien().parler();
 	}
 
 }

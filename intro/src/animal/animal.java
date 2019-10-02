@@ -22,6 +22,10 @@ public class animal {
 		this.id = id;
 	}
 
+	public void parler(){
+			System.out.println("parlerrrrrrrrrrrrr");
+	}
+
 	public void afficher(){
 		System.out.println("id : "+getId()+" |nom : "+getNom()+" |age : "+getAge()+" |poid : "+getPoid()+" | speed :"+getSpeed()+"| nombre de hmar : "+nbranimal);
 	}
