@@ -18,16 +18,12 @@ public class argument {
 
         System.out.println(" put case ");
         int b = new Scanner(System.in).nextInt();
-
         System.out.println("put a :");
         int a = new Scanner(System.in).nextInt();
-
         int c = new Scanner(System.in).nextInt();
         switch (b){
             case 1:
-                maine(a);
-                break;
-
+                maine(a);break;
             case  2 :
                 maine(a,b);
                 break;
