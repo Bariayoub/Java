@@ -8,7 +8,8 @@ import java.util.Set;
 public class hashmapp {
 
     public static void main(String[] args) {
-        //parrcour map  using keyset
+        //parrcour map  using entry
+        
 
         Map<Integer,String> map = new HashMap<Integer, String>();
         map.put(1,"one");
@@ -16,12 +17,12 @@ public class hashmapp {
         map.put(3,"tree");
         map.put(4,"foor");
 
-        Set st = map.keySet();
-        Iterator it = st.iterator();
+        Set<Map.Entry<Integer,String>> st = map.entrySet();
+        Iterator<Map.Entry<Integer,String>> it = st.iterator();
 
         while (it.hasNext()){
-            int key = (int) it.next();
-            System.out.println(" key :"+key+" val : "+map.get(key));
+            Map.Entry<Integer,String> key = it.next();
+            System.out.println(" key :"+key.getKey()+" val : "+key.getValue());
             it.remove();
         }
     }
