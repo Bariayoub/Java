@@ -8,7 +8,7 @@ import java.util.List;
 public class itera  {
 
     public static void main(String[] args) {
-        String t;
+        String[] t = {"","","",""};
         ArrayList<String> ar = new ArrayList<String>();
 
         ar.add("1");
