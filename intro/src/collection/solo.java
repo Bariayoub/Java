@@ -27,5 +27,6 @@ public class solo<T> {
         new solo<Integer>(333).aff();
         new solo<String>("gdfgdgfd").aff();
         new solo<Float>((float) 33.33).aff();
+
     }
 }
