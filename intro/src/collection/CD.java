@@ -2,6 +2,8 @@ package collection;
 
 import org.w3c.dom.ls.LSOutput;
 
+import java.util.*;
+
 public class CD implements Comparable<CD> {
     private String auteur, titre;
     private double prix;
@@ -46,17 +48,22 @@ public class CD implements Comparable<CD> {
 
     @Override
     public int compareTo(CD o) {
-        if (this.prix == o.prix){
-            return 0;
-        }else if (this.prix > o.prix){
-            return 1;
-        }
-        return -1;
+        return this.auteur.compareTo(o.auteur);
     }
 
 
     public static void main(String[] args) {
 
-        System.out.println(new CD("larbi","trtrt",2).compareTo(new CD("nasim","fdfd",2)));
+        Set<CD> tree = new TreeSet<CD>();
+        tree.add(new CD("larbi","trtrt",2));
+        tree.add(new CD("nazih","dfg",22));
+        tree.add(new CD("moha","cvb",23));
+        tree.add(new CD("youb","hjk",-2));
+        tree.add(new CD("bot","yui",-552));
+
+        Iterator it = tree.iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
     }
 }
