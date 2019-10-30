@@ -27,7 +27,7 @@ public class main {
             e.printStackTrace();
         }
         */
-        
+
         File f = new File("filename.txt");
         File f2 = new File("filename2.txt");
         FileInputStream fileInputStream = null;
