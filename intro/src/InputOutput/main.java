@@ -28,6 +28,8 @@ public class main {
         }
         */
 
+
+         //FileInputStream  ***************  FileOutputStream
         File f = new File("filename.txt");
         File f2 = new File("filename2.txt");
         FileInputStream fileInputStream = null;
@@ -37,12 +39,14 @@ public class main {
             fileInputStream =new FileInputStream(f);
             byte[] buf=  new  byte[10];
             int n = 0;
+            long t = System.currentTimeMillis();
             while ((n=fileInputStream.read(buf))>=0){
                 for (int i=0;i<n;i++) {
-                    System.out.print((char) buf[i]);
+                   // System.out.print((char) buf[i]);
                     fileOutputStream.write((char) buf[i]);
                 }
             }
+            System.out.println("\ntime :"+(System.currentTimeMillis()-t));
             fileOutputStream.close();
             fileInputStream.close();
         }catch (Exception e){
@@ -50,7 +54,27 @@ public class main {
         }
 
 
-
+        //BufferedInputStream  ***************  BufferedOutputStream
+        BufferedInputStream bufferedInputStream = null;
+        BufferedOutputStream bufferedOutputStream = null;
+        try {
+            bufferedInputStream = new BufferedInputStream(new FileInputStream("filename.txt"));
+            bufferedOutputStream =new BufferedOutputStream(new FileOutputStream("filename2.txt"));
+            byte[] buf=  new  byte[10];
+            int n = 0;
+            long t2 = System.currentTimeMillis();
+            while ((n=bufferedInputStream.read(buf))>=0){
+                for (int i=0;i<n;i++) {
+                    // System.out.print((char) buf[i]);
+                    bufferedOutputStream.write((char) buf[i]);
+                }
+            }
+            System.out.println("\ntime :"+(System.currentTimeMillis()-t2));
+            bufferedOutputStream.close();
+            bufferedInputStream.close();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
 
 
