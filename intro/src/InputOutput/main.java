@@ -29,7 +29,7 @@ public class main {
         */
 
 
-         //FileInputStream  ***************  FileOutputStream
+        //FileInputStream  ***************  FileOutputStream
         File f = new File("filename.txt");
         File f2 = new File("filename2.txt");
         FileInputStream fileInputStream = null;
@@ -42,7 +42,7 @@ public class main {
             long t = System.currentTimeMillis();
             while ((n=fileInputStream.read(buf))>=0){
                 for (int i=0;i<n;i++) {
-                   // System.out.print((char) buf[i]);
+                    // System.out.print((char) buf[i]);
                     fileOutputStream.write((char) buf[i]);
                 }
             }
