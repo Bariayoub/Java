@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
-        File myObj = null;
 
-        /*
+        /*File myObj = null;
+
         try {
             myObj = new File("C:\\");
             int n = 0;
@@ -28,23 +28,23 @@ public class main {
         }
         */
 
+
+
+        File f = new File("filename.txt");
+        FileInputStream fileInputStream = null;
         try {
-            myObj = new File("filename.txt");
-            //Byte[] Buf = new Byte[8];
-            FileInputStream fileInputStream = new FileInputStream(myObj);
-            int n = fileInputStream.read();
-            FileWriter fileWriter = new FileWriter(myObj);
-            fileWriter.write(n);
-
-            Scanner fileReader = new Scanner(myObj);
-            if (fileReader.hasNextLine()){
-                String nn = fileReader.nextLine();
-                System.out.println(nn);
+            fileInputStream =new FileInputStream(f);
+            byte[] buf=  new  byte[10];
+            int n = 0;
+            while ((n=fileInputStream.read(buf))>=0){
+                for (int i=0;i<n;i++)
+                System.out.print((char)buf[i]);
             }
-
-
+                fileInputStream.close();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+
+
     }
 }
