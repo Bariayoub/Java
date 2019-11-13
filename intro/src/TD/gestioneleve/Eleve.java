@@ -1,9 +1,10 @@
-package gestioneleve;
+package TD.gestioneleve;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class Eleve {
+public class Eleve implements Comparable<Eleve>{
     private String nom;
     private double moyenne=0;
     public List<Integer> list = new ArrayList<>();
@@ -43,6 +44,16 @@ public class Eleve {
         b.ajouternote(18);b.ajouternote(10);b.ajouternote(12);
         System.out.println(b.toString());
         System.out.println(b.getListNotes());
+    }
+
+    @Override
+    public int compareTo(Eleve o) {
+        if (this.moyenne > o.moyenne){
+            return 1;
+        }else if (this.moyenne < o.moyenne){
+            return -1;
+        }
+        else return 0;
     }
 }
 
