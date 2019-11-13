@@ -1,5 +1,7 @@
 package animal;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class animal {
 
     private static int nbranimal = 0;
