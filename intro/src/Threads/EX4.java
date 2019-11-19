@@ -1,16 +1,17 @@
 package Threads;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 //E3 UML
-public class EX3 extends Thread {
+public class EX4 extends Thread {
     private int ID;
     public List list = new ArrayList();
     public int N;
 
 
-    public EX3(int i){
+    public EX4(int i){
         this.ID=i;
     }
 
@@ -33,7 +34,7 @@ public class EX3 extends Thread {
     public void quitter(){
         Iterator it = list.iterator();
         while(it.hasNext()){
-            int i = it.next();
+            int i = (int) it.next();
             if(i==this.ID)it.remove();
             N--;
             System.out.println("La Voiture "+this.ID+ "Sort");
@@ -42,15 +43,15 @@ public class EX3 extends Thread {
 
     public static void main(String[] args) {
 
-        new EX3(2).start();
-        new EX3(5646).start();
-        new EX3(664).start();
-        new EX3(331).start();
-        new EX3(31302).start();
-        new EX3(334).start();
-        new EX3(332).start();
-        new EX3(558).start();
-        new EX3(558).start();
+        new EX4(2).start();
+        new EX4(5646).start();
+        new EX4(664).start();
+        new EX4(331).start();
+        new EX4(31302).start();
+        new EX4(334).start();
+        new EX4(332).start();
+        new EX4(558).start();
+        new EX4(558).start();
     }
 
 }
