@@ -37,7 +37,7 @@ public class EX4 extends Thread {
             int i = (int) it.next();
             if(i==this.ID)it.remove();
             N--;
-            System.out.println("La Voiture "+this.ID+ "Sort");
+            System.out.println("La Voiture "+this.ID+ " Sort");
         }
     }
 
