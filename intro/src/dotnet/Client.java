@@ -1,44 +1,45 @@
-package dotnet;
+package com.company.ClientServer;
 
 import java.io.*;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Client {
     static final int port = 9910;
 
     public static void main(String[] args) throws Exception {
 
-        for (;;) {
-            int max = 10;
-            int min = 1;
-            int range = max - min + 1;
 
+        Scanner scn = new Scanner(System.in);
+        Scanner scn2 = new Scanner(System.in);
             //********************SenD Object
             Socket socket = new Socket(InetAddress.getLocalHost(), port);
             System.out.println(socket);
-            int a = (int) (Math.random() * range) + min;
-            int bb = (int) (Math.random() * range) + min;
 
-            note n = new note(a, bb);
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
-            objectOutputStream.writeObject(n);
-            objectOutputStream.close();
+        DataInputStream dis = new DataInputStream(socket.getInputStream());
+        DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
-            //********************
-            ServerSocket s = new ServerSocket(9911);
-            socket = s.accept();
+        while (true){
+                System.out.println(dis.readUTF());
+            String tosend = scn.nextLine();
+            dos.writeUTF(tosend);
 
-            int nn;
-            BufferedInputStream bufferedInputStream =  new BufferedInputStream(socket.getInputStream());
-            while ((nn = bufferedInputStream.read()) >0) {
-                System.out.println("THE SUM OF {" + n.getA() + " + " + n.getB() + "} = " + nn);
+            if(tosend.equals("Exit"))
+            {
+                System.out.println("Closing this connection : " + socket);
+                socket.close();
+                System.out.println("Connection closed");
+                break;
             }
 
-            s.close();
-            socket.close();
-           Thread.sleep(1);
-        }
+                System.out.println("donnez Le prmier :");String  a = scn.nextLine();
+                System.out.println("donnez Le deuxiemme : ");String b = scn2.nextLine();
+                new ObjectOutputStream(socket.getOutputStream()).writeObject(new note(a, b));
+
+                String received = dis.readUTF();
+                System.out.println(received);
+            }
     }
 }
